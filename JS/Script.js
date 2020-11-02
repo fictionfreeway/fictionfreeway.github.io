@@ -57,7 +57,7 @@ lp1Text = document.getElementById("lp1-text");
 lp1List = document.getElementById("lp1-list");
 
 //define lists to loop through/use for portfolio functions
-const projectGroups = document.querySelectorAll(".project-group");
+const projectGroups = Array.from(document.querySelectorAll(".project-group"));
 const portImages = Array.from(document.querySelectorAll(".port-img"));
 const firstImages = document.querySelectorAll(".img1");
 const secondImages = document.querySelectorAll(".img2");
@@ -66,7 +66,7 @@ const folders = Array.from(document.querySelectorAll(".folder"));
 const folderBorders = Array.from(document.querySelectorAll(".folder-border"));
 const portLists = Array.from(document.querySelectorAll(".port-list"));
 const closeButton = document.getElementById("close");
-
+const changingText = document.getElementById("changing-text");
 
 
 //function of styles to be applied to clicked images
@@ -83,16 +83,16 @@ let shrinkFolder = (currentContent) => {
   nonActiveContent.forEach(element => {
     if(element.classList.contains("img1")) {
       element.style.transform = "translate(-5%, 17vh) scale(0.6) rotate(-12deg)";
-    }
-    else if(element.classList.contains("img2")) {
+    } else if(element.classList.contains("img2")) {
       element.style.transform = "translate(0, 22vh) scale(0.6) rotate(-17deg)";
     }
     //translate folder title to stay in the correct spot on folder, will need work in responsiveness
     else if(element.classList.contains("folder-title")) {
       element.style.transform = "translate(-40%, 28vh) scale(0.63)";
-    }
-    else {
-      element.style.transform = "translate(0, 25vh) scale(0.6)";
+    } else if (element.classList.contains("folder-border")) {
+      element.style.transform = "translate(0, 24.5vh) scale(0.6)";
+    } else {
+      element.style.transform = "translate(0, 24vh) scale(0.6)";
     }
   })
 };
@@ -108,9 +108,9 @@ let resetImages = (imgList, image) => {
       project.style.transform = "rotate(-12deg)";
     }
     else if(project.classList.contains("img2")) {
-      project.style.bottom = "20vh";
+      project.style.bottom = "18vh";
       project.style.left = "27%";
-      project.style.transform = "rotate(-12deg)";
+      project.style.transform = "rotate(-17deg)";
     }
   })
 };
@@ -135,15 +135,25 @@ let showList = (currentImage) => {
 //function to show close button
 let showClose = () => {
   closeButton.style.opacity = "1";
+  closeButton.style.visibility = "visible";
+}
+
+//hides close button
+let hideClose = () => {
+  closeButton.style.opacity = "0";
+  closeButton.style.visibility = "hidden";
 }
 
 //apply changes to portfolio images when clicked using functions defined above
 portImages.forEach(image => {
   image.onclick = () => {
+    activeImg = image;
     presentProject(image);
     resetImages(portImages, image);
     shrinkFolder(image);
     showClose();
+    hideNext();
+    hidePrevious();
     hideLists(image);
     showList(image);
   }
@@ -168,21 +178,121 @@ let closeProject = () => {
     }
   })
 
-  /* folders.forEach(folder => {
+  folders.forEach(folder => {
     folder.style.transform = "scale(1.0)";
   });
   folderBorders.forEach(border => {
     border.style.transform = "scale(1.0)";
-  }); */
+  });
 }
 
-//hides close button
-let hideClose = () => {
-  closeButton.style.opacity = "0";
+//automatically shows the appropriate next or previous button depending on which folder is on screen
+let showHideNextPrevious = () => {
+  if(folderNumber == 0) {
+    showNext();
+    hidePrevious();
+  } else if(folderNumber < 4 && folderNumber > 0) {
+    showNext();
+    showPrevious();
+  } else if(folderNumber >= 4) {
+    showPrevious();
+    hideNext();
+  }
 }
 
+//return to large folder when "x" button is clicked
 closeButton.onclick = () => {
   closeProject();
   hideClose();
   hideLists();
+  showHideNextPrevious();
 }
+
+//script to allow for next and previous buttons to scroll through portfolio categories/folders which will slid in from left/right
+
+
+//functions to slide current folder away to left or right out of sight
+let slideLeft = (folder) => {
+  folder.style.transform = "translate(-2000px)";
+}
+
+let slideRight = (folder) => {
+  folder.style.transform = "translate(2000px)";
+}
+
+let slideToCenter = (folder) => {
+  folder.style.transform = "translate(0)";
+}
+
+// functions to show/hide next/previous buttons
+let previousButton = document.getElementById("previous");
+let nextButton = document.getElementById("next");
+
+let showPrevious = () => {
+  previousButton.style.opacity = "100";
+  previousButton.style.visibility = "visible";
+}
+
+let hidePrevious = () => {
+  previousButton.style.opacity = "0";
+  previousButton.style.visibility = "hidden";
+}
+
+let showNext = () => {
+  nextButton.style.opacity = "100";
+  nextButton.style.visibility = "visible";
+}
+
+let hideNext = () => {
+  nextButton.style.opacity = "0";
+  nextButton.style.visibility = "hidden";
+}
+
+//variable that holds the current shown folder
+folderNumber = 0;
+
+currentFolder = projectGroups[folderNumber];
+
+//function to reassign currentFolder
+updateFolder = () => {
+  currentFolder = projectGroups[folderNumber];
+}
+
+
+//changes text at top of #portfolio div when certain folders are on in frame
+let changePortText = (current) => {
+  if(current == 4) {
+    changingText.innerHTML = "Find me in these places:";
+  } else {
+    changingText.innerHTML = "Here is a selection of my work. Take a look around."
+  }
+}
+
+//function to bring next folder when next button is clicked
+nextButton.onclick = () => {
+  if(folderNumber < 4) {
+    slideLeft(currentFolder);
+    folderNumber++;
+    updateFolder();
+    showHideNextPrevious();
+    slideToCenter(currentFolder);
+    changePortText(folderNumber);
+  }
+}
+
+//recall previous folder when previous arrow button is clicked
+previousButton.onclick = () => {
+  if(folderNumber > 0) {
+    slideRight(currentFolder);
+    folderNumber--;
+    updateFolder();
+    showHideNextPrevious();
+    slideToCenter(currentFolder);
+    changePortText(folderNumber);
+  } else {
+
+  }
+  
+}
+
+console.log("Oh dear god, they're looking at my code")

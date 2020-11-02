@@ -36,11 +36,13 @@
                 </a>
             </div>
             <div id="portfolio">
-                <h2>Here's some of my projects. Take a look around. </h2>
+                <button id="next" class="arrow-button">&#8680;</button>
+                <button id="previous" class="arrow-button">&#8678;</button>
+                <h2 id="changing-text">Here is a selection of my work. Take a look around.</h2>
+                <button id="close">&#10006</button>
                 <div id="landing-pages" class="project-group">
-                    <button id="close">&#10006</button>
-                    <h4 class="folder-title group-content">Landing Pages</h4>
                     <div class="folder group-content">
+                        <h4 class="folder-title">Landing Pages</h4>
                     </div>
                     <div class="folder-border group-content"></div>
                     <div id="lp1" class="img1 port-img group-content">
@@ -53,6 +55,8 @@
                             <li>Clean color scheme reminds customers of the beach</li>
                             <li>Idk something else goes here I guess</li>
                         </ul>
+                        <br>
+                        <a href="#portfolio">View Full Site | View Source Code</a>
                     </div>
                     <div id="lp2" class="img2 port-img group-content">
                         <img src="../images/Hotel Site.PNG">
@@ -64,34 +68,102 @@
                             <li>Words words words words</li>
                             <li>lorem ipsum whatever</li>
                         </ul>
+                        <br>
+                        <a href="#portfolio">View Full Site | View Source Code</a>
                     </div>             
                 </div>
-                <!-- <div id="websites" class="project-group">
-                    <div class="folder">
-                        <h4>Multi-Page Websites</h4>
+                <div id="websites" class="project-group start-on-right">
+                    <div class="folder group-content">
+                        <h4 class="folder-title">Websites</h4>
                     </div>
-                    <div class="folder-border"></div>
-                    <div class="img1">
+                    <div class="folder-border group-content"></div>
+                    <div id="web1" class="img1 port-img group-content">
                         <img src="../images/Hotel Site.PNG">
+                        <p id="web1-text" class="port-caption">Golden Sands Hotel</p>
+                    </div>
+                    <div id="web1-list" class="port-list">
+                        <ul>
+                            <li>Responsive, attractive site for oceanfront hotel</li>
+                            <li>Clean color scheme reminds customers of the beach</li>
+                            <li>Idk something else goes here I guess</li>
+                        </ul>
+                    </div>
+                    <div id="web2" class="img2 port-img group-content">
+                        <img src="../images/Hotel Site.PNG">
+                        <p id="web2-text" class="port-caption">Blah Blah Blah</p>
+                    </div>
+                    <div id="web2-list" class="port-list">
+                        <ul>
+                            <li>This thing's cool too</li>
+                            <li>Words words words words</li>
+                            <li>lorem ipsum whatever</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="project-group">
-                    <div class="folder">
-                        <h4></h4>
+                <div id="other" class="project-group">
+                    <div class="folder group-content">
+                        <h4 class="folder-title">Other Projects</h4>
                     </div>
-                    <div class="folder-border"></div>
-                    <div class="img1">
+                    <div class="folder-border group-content"></div>
+                    <div id="other1" class="img1 port-img group-content">
                         <img src="../images/Hotel Site.PNG">
+                        <p id="other1-text" class="port-caption">Golden Sands Hotel</p>
+                    </div>
+                    <div id="other1-list" class="port-list">
+                        <ul>
+                            <li>Responsive, attractive site for oceanfront hotel</li>
+                            <li>Clean color scheme reminds customers of the beach</li>
+                            <li>Idk something else goes here I guess</li>
+                        </ul>
+                    </div>
+                    <div id="other2" class="img2 port-img group-content">
+                        <img src="../images/Hotel Site.PNG">
+                        <p id="other2-text" class="port-caption">Blah Blah Blah</p>
+                    </div>
+                    <div id="other2-list" class="port-list">
+                        <ul>
+                            <li>This thing's cool too</li>
+                            <li>Words words words words</li>
+                            <li>lorem ipsum whatever</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="project-group">
-                    <div class="folder">
-                        <h4>Writing</h4>
+                <div id="writing" class="project-group">
+                    <div class="folder group-content">
+                        <h4 class="folder-title">Writings</h4>
                     </div>
-                    <div class="folder-border"></div>
-                    <div class="img1">
+                    <div class="folder-border group-content"></div>
+                    <div id="writing1" class="img1 port-img group-content">
                         <img src="../images/Hotel Site.PNG">
-                    </div> -->
+                        <p id="writing1-text" class="port-caption">Golden Sands Hotel</p>
+                    </div>
+                    <div id="writing1-list" class="port-list">
+                        <ul>
+                            <li>Responsive, attractive site for oceanfront hotel</li>
+                            <li>Clean color scheme reminds customers of the beach</li>
+                            <li>Idk something else goes here I guess</li>
+                        </ul>
+                    </div>
+                    <div id="writing2" class="img2 port-img group-content">
+                        <img src="../images/Hotel Site.PNG">
+                        <p id="writing2-text" class="port-caption">Blah Blah Blah</p>
+                    </div>
+                    <div id="writing2-list" class="port-list">
+                        <ul>
+                            <li>This thing's cool too</li>
+                            <li>Words words words words</li>
+                            <li>lorem ipsum whatever</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="external-links" class="project-group">
+                    <div class="final-group">
+                        <div class="icon-container">
+                            <a class="icon" href="https://github.com/fictionfreeway" target="_blank"><img src="../images/github.png"></a>
+                            <a class="icon" href="https://www.linkedin.com/in/william-watlington-1825ab4a/" target="_blank"><img src="../images/Linkedin.png"></a>
+                            <a class="icon" href="https://www.codecademy.com/profiles/WilliamHWatlington" target="_blank"><img src="../images/Codecademy_Logo-700x629.png"></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
