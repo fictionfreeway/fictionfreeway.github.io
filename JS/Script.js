@@ -156,6 +156,7 @@ portImages.forEach(image => {
     hidePrevious();
     hideLists(image);
     showList(image);
+    document.getElementById("lp1").style.animation = "none";
   }
 });
 

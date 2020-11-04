@@ -414,11 +414,6 @@ nav a {
     transition-duration: .5s;
 }
 
-/* Hovered project image pulls up out of folder slightly **BEING REPLACED BY JS */
-/* .port-img:hover {
-    transform: translate(0px, -3vh) rotate(-15deg);
-} */
-
 @keyframes smooth {
     0% { opacity: 0;}
     100% { opacity: 1;}
