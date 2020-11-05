@@ -110,7 +110,7 @@ const changingText = document.getElementById("changing-text");
 
 //function of styles to be applied to clicked images
 let presentProject = (image) => {
-  image.style.bottom = "30vh";
+  image.style.bottom = "18rem";
   image.style.left = "8%";
   image.style.transform = "rotate(0deg)";
 };
