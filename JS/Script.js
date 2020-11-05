@@ -1,47 +1,86 @@
+//define sections of page that will be scrolled to by buttons/anchors
+let home = document.getElementById("welcome-page");
+let about = document.getElementById("about");
+let portfolio = document.getElementById("portfolio");
 
 //define buttons in navbar that will be changed in focus function
 let homeButton = document.getElementById("home-button");
+let aboutButton = document.getElementById("about-button");
 let portButton = document.getElementById("port-button");
-let contactButton = document.getElementById("contact-button");
+let letsGoButton = document.getElementById("lets-go");
+let buttons = [homeButton, aboutButton, portButton, letsGoButton];
 
+//onclick functions for scrolling to elements
+buttons.forEach(button => {
+  button.onclick = () => {
+    if(button == homeButton) {
+      home.scrollIntoView(false);
+    } else if(button == letsGoButton || button == aboutButton) {
+      about.scrollIntoView({
+        block: "center"
+      });
+    } else if(button == portButton) {
+      portfolio.scrollIntoView({
+        block: "center"
+      })
+    }
+  }
+})
 
 // function that changes color and boldness of current option on nav and nav border color
 let focus = (element) => {
   if (element == portfolio) {
     navbar.style.borderColor = "#fc4a1a";
     portButton.style.color = "#fc4a1a";
-    portButton.style.fontWeight = "bold";
 
     //reset other navbar buttons color and font-weight when other section is visible
     homeButton.style.color = "#000";
-    homeButton.style.fontWeight = "normal";
+    aboutButton.style.color = "#000";
   }
 
-  else if (element == welcome) {
+  else if (element == home) {
     navbar.style.borderColor = "#4abdac";
     homeButton.style.color = "#fc4a1a";
-    homeButton.style.fontWeight = "bold";
 
     //resetting other <a> elements in nav to default styles
     portButton.style.color = "#000";
-    portButton.style.fontWeight = "normal";
+    aboutButton.style.color = "#000";
+
+  } else if (element == about) {
+    navbar.style.borderColor = "#f7b733";
+    aboutButton.style.color = "#fc4a1a";
+
+    homeButton.style.color = "#000";
+    portButton.style.color = "#000";
   }
+
 };
+
+//function that changes url when different sections are scrolled to
+let changeUrl = (section) => {
+  if (window.history.pushState) {
+    if(section == home) {
+      window.history.pushState(null, null, window.location.pathname);
+    } else {
+      let sectionId = "#" + String(section.id);
+      window.history.pushState(null, null, window.location.pathname + sectionId);
+    } 
+  }
+}
 
 // detect when sections are scrolled to. This is to change nav border color to match the div border
 let navbar = document.getElementById("navbar");
-let portfolio = document.getElementById("portfolio")
-let welcome = document.getElementById("welcome-page")
 let observer = new IntersectionObserver((entries, observer) => { 
   entries.forEach(entry => {
     if(entry.isIntersecting) {
       focus(entry.target);
+      changeUrl(entry.target);
     }
   });
-}, {threshold: 0.3});
+}, {threshold: 0.6});
 
 // array of sections to be observed 
-let sections = [welcome, portfolio];
+let sections = [home, about, portfolio];
 
 sections.forEach(section => {
   observer.observe(section);
@@ -263,9 +302,9 @@ updateFolder = () => {
 //changes text at top of #portfolio div when certain folders are on in frame
 let changePortText = (current) => {
   if(current == 4) {
-    changingText.innerHTML = "Find me in these places:";
+    changingText.innerHTML = "This is where you can find me";
   } else {
-    changingText.innerHTML = "Here is a selection of my work. Take a look around."
+    changingText.innerHTML = "This is what I do"
   }
 }
 
