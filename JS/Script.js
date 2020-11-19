@@ -8,7 +8,8 @@ let homeButton = document.getElementById("home-button");
 let aboutButton = document.getElementById("about-button");
 let portButton = document.getElementById("port-button");
 let letsGoButton = document.getElementById("lets-go");
-let buttons = [homeButton, aboutButton, portButton, letsGoButton];
+let seeWorkButton = document.getElementById("see-work");
+let buttons = [homeButton, aboutButton, portButton, letsGoButton, seeWorkButton];
 
 //onclick functions for scrolling to elements
 buttons.forEach(button => {
@@ -19,7 +20,7 @@ buttons.forEach(button => {
       about.scrollIntoView({
         block: "center"
       });
-    } else if(button == portButton) {
+    } else if(button == portButton || button == seeWorkButton) {
       portfolio.scrollIntoView({
         block: "center"
       })
@@ -121,17 +122,13 @@ let shrinkFolder = (currentContent) => {
   let nonActiveContent = projectContents.filter(content => content !== currentContent);
   nonActiveContent.forEach(element => {
     if(element.classList.contains("img1")) {
-      element.style.transform = "translate(-5%, 17vh) scale(0.6) rotate(-12deg)";
+      element.style.transform = "translate(-5%, 10rem) scale(0.6) rotate(-12deg)";
     } else if(element.classList.contains("img2")) {
-      element.style.transform = "translate(0, 22vh) scale(0.6) rotate(-17deg)";
-    }
-    //translate folder title to stay in the correct spot on folder, will need work in responsiveness
-    else if(element.classList.contains("folder-title")) {
-      element.style.transform = "translate(-40%, 28vh) scale(0.63)";
+      element.style.transform = "translate(5%, 12rem) scale(0.6) rotate(-17deg)";
     } else if (element.classList.contains("folder-border")) {
-      element.style.transform = "translate(0, 24.5vh) scale(0.6)";
-    } else {
-      element.style.transform = "translate(0, 24vh) scale(0.6)";
+      element.style.transform = "translate(0, 13.25rem) scale(0.6)";
+    } else if (element.classList.contains("folder")) {
+      element.style.transform = "translate(0, 13rem) scale(0.6)";
     }
   })
 };
@@ -142,12 +139,12 @@ let resetImages = (imgList, image) => {
   let nonActiveImages = imgList.filter(arrImage => arrImage !== image);
   nonActiveImages.forEach(project => {
     if(project.classList.contains("img1")) {
-      project.style.bottom = "15vh";
+      project.style.bottom = "9rem";
       project.style.left = "30%";
       project.style.transform = "rotate(-12deg)";
     }
     else if(project.classList.contains("img2")) {
-      project.style.bottom = "18vh";
+      project.style.bottom = "11rem";
       project.style.left = "27%";
       project.style.transform = "rotate(-17deg)";
     }
