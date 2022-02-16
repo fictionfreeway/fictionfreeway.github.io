@@ -155,6 +155,7 @@ let resetImages = (imgList, image) => {
 let hideLists = () => {
   portLists.forEach(list => {
     list.style.opacity = "0";
+    list.style.visibility = "hidden";
   })
 };
 
@@ -164,6 +165,7 @@ let showList = (currentImage) => {
     let listId = currentImage.id + "-list";
     let list = document.getElementById(listId);
     list.style.opacity = 1;
+    list.style.visibility = "visible";
   } catch (error) {
   }
 }
