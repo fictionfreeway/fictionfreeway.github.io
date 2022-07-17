@@ -1,3 +1,10 @@
+/* 
+  File: script.js
+  Author: William Watlington
+  Date: 7/10/2022
+  Description: script for portfolio project 
+  */
+
 //define sections of page that will be scrolled to by buttons/anchors
 let home = document.getElementById("welcome-page");
 let about = document.getElementById("about");
