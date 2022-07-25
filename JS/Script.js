@@ -341,4 +341,4 @@ previousButton.onclick = () => {
   
 }
 
-console.log("Oh dear god, they're looking at my code")
+console.log("Oh no they're inspecting it");

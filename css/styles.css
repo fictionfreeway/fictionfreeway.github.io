@@ -142,7 +142,7 @@ nav a {
 }
 
 
-.welcome {
+.welcome, .resume {
     min-width: 400px;
     max-width: 60%;
     margin: 0 auto;
@@ -161,6 +161,9 @@ nav a {
     font-weight: normal;
     font-size: 1.5rem;
 }
+
+
+
 
 #about {
     position: relative;
@@ -230,7 +233,7 @@ nav a {
     width: 200px;
 }
 
-#portfolio {
+#portfolio, #school {
     position: relative;
     margin: 25vh auto;
     width: 75%;
@@ -374,6 +377,34 @@ nav a {
     top: -160rem;
 }
 
+.school ul {
+    width: 40%;
+    margin: 0 auto;
+}
+
+.school li {
+    font-family: "Open Sans", sans-serif;
+    font-size: 2rem;
+    width: 60%;
+    margin: 1.5rem auto;
+    color: #fff;
+    background-color: #4abdac;
+    border: 3px solid #32897c;
+    padding: 1rem;
+    border-radius: 30px;
+    transition-property: transform;
+    transition-duration: .2s;
+}
+
+.school li:hover {
+    transform: translate(20px);
+}
+
+.school p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.2rem;
+}
+
 
 
 .folder-title {
@@ -478,6 +509,90 @@ nav a {
     display: block;
     margin: 0 auto;
     height: 40vh;
+}
+
+.main ul{
+    display: grid;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-auto-flow: row;
+    min-width: 400px;
+    max-width: 60%;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+    justify-content: space-between;
+    text-align: center;
+    min-height: 80vh;
+    height: auto;
+    background-color: #fff;
+    border: 15px solid #4abdac;
+}
+
+#projects ul {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
+#diagrams ul {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.main h3, .welcome h3 {
+    color: #fc4a1a;
+}
+
+.main h4 {
+    font-size: 1.5rem;
+}
+
+.main ul, .welcome ul {
+    width: 60%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.main li {
+    list-style-type: none;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.welcome li {
+    list-style-type: none;
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+#projects a {
+    text-decoration: underline;
+}
+
+#projects li, #diagrams li {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+footer {
+    width: 100%;
+    background-color: #4abdac;
+    height: 2.5rem;
+}
+
+footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+footer li {
+    display: inline-block;
+    line-height: 2.5rem;
+    font-family: "Open Sans", sans-serif;
+    text-transform: lowercase;
+    font-weight: bold;
+    color: #fff;
 }
 
 /* Color Classes */
