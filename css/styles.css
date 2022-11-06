@@ -246,6 +246,10 @@ nav a {
     overflow: hidden;
 }
 
+#school {
+    height: auto !important;
+}
+
 .arrow-button {
     cursor: pointer;
     position: absolute;
